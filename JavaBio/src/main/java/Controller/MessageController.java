@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/messages")
 public class MessageController {
@@ -24,10 +26,10 @@ public class MessageController {
         }
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Message> getMessageById(@PathVariable Long id) {
-        return messageRepository.findById(id)
-                .map(message -> ResponseEntity.ok().body(message))
-                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
+    @GetMapping
+    public ResponseEntity<List<Message>> getMessagesByRequest(
+            @RequestParam Long requestId
+    ) {
+        return ResponseEntity.ok(messageRepository.findByRequestId(requestId));
     }
 }
