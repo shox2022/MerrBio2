@@ -1,0 +1,48 @@
+<!-- Consumer Dashboard -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Consumer Dashboard</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">MerrBio</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h2>Welcome, Consumer!</h2>
+    <p>This is your dashboard to explore and purchase local products.</p>
+
+    <div id="productList" class="row"></div>
+</div>
+
+<script>
+    async function fetchProducts() {
+      const response = await fetch("/api/products");
+      const products = await response.json();
+      const list = document.getElementById("productList");
+      list.innerHTML = "";
+
+      products.forEach(product => {
+        const card = document.createElement("div");
+        card.className = "card col-md-4 m-2";
+        card.innerHTML = `
+          <div class="card-body">
+            <h5 class="card-title">${product.name}</h5>
+            <p class="card-text">${product.description}</p>
+            <p class="card-text"><strong>Price:</strong> $${product.price}</p>
+          </div>
+        `;
+        list.appendChild(card);
+      });
+    }
+
+    fetchProducts();
+</script>
+</body>
+</html>
+
