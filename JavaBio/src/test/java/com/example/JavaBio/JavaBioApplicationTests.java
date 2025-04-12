@@ -1,10 +1,10 @@
-package com.example.MerrBio;
+package com.example.JavaBio;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MerrBioApplicationTests {
+class JavaBioApplicationTests {
 
 	@Test
 	void contextLoads() {

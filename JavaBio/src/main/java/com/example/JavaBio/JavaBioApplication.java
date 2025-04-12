@@ -1,13 +1,13 @@
-package com.example.MerrBio;
+package com.example.JavaBio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MerrBioApplication {
+public class JavaBioApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MerrBioApplication.class, args);
+		SpringApplication.run(JavaBioApplication.class, args);
 	}
 
 }
