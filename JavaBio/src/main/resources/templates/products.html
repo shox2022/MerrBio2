@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Products - JavaBio</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">JavaBio</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h2>Product Management</h2>
+
+    <!-- Form to add a new product -->
+    <form id="productForm" class="mb-5">
+        <div class="mb-3">
+            <label for="productName" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="productName" required />
+        </div>
+        <div class="mb-3">
+            <label for="productDescription" class="form-label">Description</label>
+            <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="productPrice" class="form-label">Price (€)</label>
+            <input type="number" class="form-control" id="productPrice" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Add Product</button>
+    </form>
+
+    <!-- Pagination Controls -->
+    <div class="mb-3">
+        <label for="pageSize" class="form-label">Page Size</label>
+        <select id="pageSize" class="form-select w-auto d-inline-block">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="20">20</option>
+        </select>
+        <button class="btn btn-secondary" onclick="loadProducts()">Load Products</button>
+    </div>
+
+    <!-- Product List -->
+    <div id="productsList" class="row"></div>
+</div>
+
+<script>
+    let currentPage = 0;
+
+    document.getElementById('productForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const product = {
+        name: document.getElementById('productName').value,
+        description: document.getElementById('productDescription').value,
+        price: parseFloat(document.getElementById('productPrice').value)
+      };
+
+      const response = await fetch('/api/products', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(product)
+      });
+
+      if (response.ok) {
+        alert("Product added successfully!");
+        document.getElementById('productForm').reset();
+        loadProducts();
+      } else {
+        alert("Failed to add product.");
+      }
+    });
+
+    async function loadProducts() {
+      const size = document.getElementById('pageSize').value;
+
+      const response = await fetch(`/api/products?page=${currentPage}&size=${size}`);
+      const products = await response.json();
+
+      const container = document.getElementById('productsList');
+      container.innerHTML = '';
+
+      if (products.length === 0) {
+        container.innerHTML = '<p>No products available.</p>';
+        return;
+      }
+
+      products.forEach(product => {
+        const col = document.createElement('div');
+        col.className = 'col-md-4 mb-3';
+        col.innerHTML = `
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">${product.name}</h5>
+              <p class="card-text">${product.description}</p>
+              <p class="card-text fw-bold">€${product.price.toFixed(2)}</p>
+            </div>
+          </div>
+        `;
+        container.appendChild(col);
+      });
+    }
+
+    window.onload = loadProducts;
+</script>
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

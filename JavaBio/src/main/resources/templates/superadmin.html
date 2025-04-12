@@ -1,0 +1,68 @@
+<!-- Super Admin Dashboard -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Super Admin Panel</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">MerrBio</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h2>Welcome, Super Admin!</h2>
+    <p>Manage all users in the system.</p>
+
+    <div class="mb-4">
+        <label for="userId" class="form-label">Fetch User by ID</label>
+        <input type="number" id="userId" class="form-control w-25 d-inline-block" />
+        <button class="btn btn-secondary" onclick="getUserById()">Fetch</button>
+    </div>
+
+    <div id="userDetails" class="card d-none">
+        <div class="card-body">
+            <h5 class="card-title" id="userTitle"></h5>
+            <p class="card-text"><strong>Email:</strong> <span id="userEmail"></span></p>
+            <p class="card-text"><strong>Type:</strong> <span id="userTypeDisplay"></span></p>
+            <div id="typeSpecificDetails"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    async function getUserById() {
+      const id = document.getElementById("userId").value;
+      const response = await fetch(`/api/users/${id}`);
+      if (!response.ok) {
+        alert("User not found");
+        return;
+      }
+
+      const user = await response.json();
+      document.getElementById("userDetails").classList.remove("d-none");
+      document.getElementById("userTitle").textContent = user.username;
+      document.getElementById("userEmail").textContent = user.email;
+      document.getElementById("userTypeDisplay").textContent = user.type;
+
+      const typeDetails = document.getElementById("typeSpecificDetails");
+      typeDetails.innerHTML = "";
+
+      if (user.type === "admin") {
+        typeDetails.innerHTML = `<p class="text-success">This user has full administrative privileges.</p>`;
+      } else if (user.type === "farmer") {
+        typeDetails.innerHTML = `<p class="text-info">This user can add and manage products.</p>`;
+      } else if (user.type === "consumer") {
+        typeDetails.innerHTML = `<p class="text-primary">This user can browse and purchase products.</p>`;
+      } else {
+        typeDetails.innerHTML = `<p class="text-muted">Unknown user type.</p>`;
+      }
+    }
+</script>
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
