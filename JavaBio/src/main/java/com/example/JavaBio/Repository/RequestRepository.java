@@ -1,7 +1,6 @@
-package Repository;
+package com.example.JavaBio.Repository;
 
-import Entity.Message;
-import Entity.Request;
+import com.example.JavaBio.Entity.Request;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

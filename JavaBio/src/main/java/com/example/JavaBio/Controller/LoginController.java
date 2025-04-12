@@ -1,4 +1,4 @@
-package Controller;
+package com.example.JavaBio.Controller;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

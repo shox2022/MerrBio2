@@ -1,7 +1,7 @@
-package Controller;
+package com.example.JavaBio.Controller;
 
-import Entity.Product;
-import Repository.ProductRepository;
+import com.example.JavaBio.Entity.Product;
+import com.example.JavaBio.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

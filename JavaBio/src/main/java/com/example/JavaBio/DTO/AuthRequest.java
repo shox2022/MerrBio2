@@ -1,4 +1,4 @@
-package DTO;
+package com.example.JavaBio.DTO;
 
 public class AuthRequest {
     private String email;

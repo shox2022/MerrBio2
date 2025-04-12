@@ -1,7 +1,7 @@
-package Controller;
+package com.example.JavaBio.Controller;
 
-import Entity.Request;
-import Repository.RequestRepository;
+import com.example.JavaBio.Entity.Request;
+import com.example.JavaBio.Repository.RequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

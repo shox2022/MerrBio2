@@ -1,7 +1,7 @@
-package Controller;
+package com.example.JavaBio.Controller;
 
-import Entity.Message;
-import Repository.MessageRepository;
+import com.example.JavaBio.Entity.Message;
+import com.example.JavaBio.Repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

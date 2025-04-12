@@ -1,6 +1,6 @@
-package Repository;
+package com.example.JavaBio.Repository;
 
-import Entity.User;
+import com.example.JavaBio.Entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
