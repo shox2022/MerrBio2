@@ -1,6 +1,6 @@
-package Controller;
-import Entity.User;
-import Repository.UserRepository;
+package com.example.JavaBio.Controller;
+import com.example.JavaBio.Entity.User;
+import com.example.JavaBio.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

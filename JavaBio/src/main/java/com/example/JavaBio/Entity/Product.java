@@ -1,4 +1,4 @@
-package Entity;
+package com.example.JavaBio.Entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

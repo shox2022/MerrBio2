@@ -1,4 +1,4 @@
-package Entity;
+package com.example.JavaBio.Entity;
 
 import java.time.LocalDateTime;
 import jakarta.persistence.*;
