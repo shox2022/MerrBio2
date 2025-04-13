@@ -5,13 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bedd859-7865-404e-a8ca-be8e15eeaa21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/consumer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/farmer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/messages.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/products.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/superadmin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Controller/ConsumerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Repository/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Service/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Service/OrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Service/ProductServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Service/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Controller/DashboardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Repository/RequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Repository/RequestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/consumer.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/consumer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/farmer.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/farmer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/layout.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/superadmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/superadmin.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +37,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -84,5 +100,15 @@
       <updated>1744468583550</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

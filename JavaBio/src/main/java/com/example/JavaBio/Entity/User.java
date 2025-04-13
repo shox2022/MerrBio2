@@ -9,10 +9,14 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
+    @Column(name = "email") // Match database column name
 
     private String email;
-    private String passwordPlain;
+
+    @Column(name = "password_plain") // Match database column name
+    private String password;
     private String role;
+    @Column(name = "full_name") // Match database column name
     private String fullName;
 
     @Column(name = "created_at", nullable = false, updatable = false)
@@ -36,11 +40,11 @@ public class User {
     }
 
     public String getPasswordPlain() {
-        return passwordPlain;
+        return password;
     }
 
     public void setPasswordPlain(String passwordPlain) {
-        this.passwordPlain = passwordPlain;
+        this.password = passwordPlain;
     }
 
     public String getRole() {
@@ -66,5 +70,7 @@ public class User {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
+
 }
 
