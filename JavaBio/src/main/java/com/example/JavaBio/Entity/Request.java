@@ -8,9 +8,13 @@ import java.time.LocalDateTime;
 public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="request_id")
     private Long requestId;
 
+    @JoinColumn(name = "product_id", nullable = false)
     private Long productId;
+
+    @Column(name="consumer_id")
     private Long consumerId;
     private Integer quantity;
     private String status;

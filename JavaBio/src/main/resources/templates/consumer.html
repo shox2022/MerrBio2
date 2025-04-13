@@ -27,10 +27,6 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
-        }
         .price-tag {
             background: var(--secondary-color);
             color: white;
@@ -48,7 +44,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" th:href="@{/}" style="color: var(--primary-color); font-weight: bold;">
-            <img src="/logo.png" alt="MerrBio" height="30" class="d-inline-block align-text-top">
             MerrBio
         </a>
         <div class="d-flex align-items-center">
@@ -64,8 +59,8 @@
         <h1 class="display-4 mb-3">Discover Fresh Local Products</h1>
         <p class="lead">Direct from our community of farmers and artisans</p>
         <div class="input-group mb-3 w-50 mx-auto">
-            <input type="text" class="form-control" placeholder="Search products..." aria-label="Search products">
-            <button class="btn btn-success" type="button">Search</button>
+            <input type="text" id="searchInput" class="form-control" placeholder="Search products..." aria-label="Search products">
+            <button class="btn btn-success" type="button" onclick="filterProducts()">Filter</button>
         </div>
     </div>
 </div>
@@ -89,44 +84,55 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // Fetches products and displays them on the dashboard.
+    let allProducts = [];
+
     async function fetchProducts() {
         try {
             const response = await fetch("/api/products");
-            const products = await response.json();
-            const list = document.getElementById("productList");
-            list.innerHTML = "";
-
-            products.forEach(product => {
-                const card = document.createElement("div");
-                card.className = "col";
-                card.innerHTML = `
-                    <div class="card product-card h-100">
-                        <img src="https://source.unsplash.com/random/800x600?fruit,vegetable,${Math.random()}"
-                             class="card-img-top" alt="${product.name}">
-                        <div class="card-body">
-                            <h5 class="card-title">${product.name}</h5>
-                            <p class="card-text text-muted">${product.description}</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <span class="price-tag">$${product.price}</span>
-                                <button class="btn btn-outline-success" onclick="placeOrder(${product.id})">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                list.appendChild(card);
-            });
+            allProducts = await response.json();
+            displayProducts(allProducts);
         } catch (error) {
             document.getElementById("productList").innerHTML =
                 `<div class="alert alert-danger">Error loading products. Please try again later.</div>`;
         }
     }
 
-    // Sends a POST request to place an order for the selected product.
+    function displayProducts(products) {
+        const list = document.getElementById("productList");
+        list.innerHTML = "";
+
+        products.forEach(product => {
+            const card = document.createElement("div");
+            card.className = "col";
+            card.innerHTML = `
+                <div class="card product-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <p class="card-text text-muted">${product.description}</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="price-tag">$${product.price}</span>
+                            <button class="btn btn-outline-success" onclick="placeOrder(${product.productId})">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            list.appendChild(card);
+        });
+    }
+
+    function filterProducts() {
+        const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+        const filtered = allProducts.filter(p =>
+            p.name.toLowerCase().includes(searchTerm) ||
+            p.description.toLowerCase().includes(searchTerm)
+        );
+        displayProducts(filtered);
+    }
+
     async function placeOrder(productId) {
         const order = {
             productId: productId,
-            consumerId: 1, // TODO: replace with the actual logged-in consumer's id
+            consumerId: 1, // Replace with real consumer ID
             quantity: 1
         };
 
@@ -139,9 +145,7 @@
                 body: JSON.stringify(order)
             });
 
-            if (!response.ok) {
-                throw new Error("Failed to place order");
-            }
+            if (!response.ok) throw new Error("Failed to place order");
 
             const result = await response.json();
             alert("Order placed successfully! Order ID: " + result.requestId);
@@ -151,9 +155,7 @@
         }
     }
 
-    // Initial load
     fetchProducts();
-    // Refresh products every 30 seconds
     setInterval(fetchProducts, 30000);
 </script>
 </body>
