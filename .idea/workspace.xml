@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bedd859-7865-404e-a8ca-be8e15eeaa21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/consumer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/farmer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/messages.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/products.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/superadmin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Controller/MarketTrendController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Entity/MarketPrediction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Repository/MarketPredictionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/market-trends.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,13 +20,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="2ae5002d02b6b50363e6d8f72a65edb243febe37" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -39,7 +43,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/shox2022/MerrBio2.git&quot;,
-    &quot;accountId&quot;: &quot;7f3599ec-aa8e-4cad-aa27-049a882eeb52&quot;
+    &quot;accountId&quot;: &quot;e426f7b0-6aed-4931-ae3e-65657aef0c17&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -58,9 +62,12 @@
   "keyToString": {
     "Application.JavaBioApplication.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
+    "JUnit.JavaBioApplicationTests.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Java",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/User/Downloads/Database-Administration",
     "project.structure.last.edited": "Modules",

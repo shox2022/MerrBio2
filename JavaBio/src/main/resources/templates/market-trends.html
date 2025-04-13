@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Market Trend Predictions</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">MerrBio</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h2>Market Trend Predictions</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Forecast Start</th>
+            <th>Forecast End</th>
+            <th>Predicted Demand</th>
+            <th>Predicted Price</th>
+            <th>Confidence</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="trend : ${marketTrends}">
+            <td th:text="${trend.forecastStart}">Forecast Start</td>
+            <td th:text="${trend.forecastEnd}">Forecast End</td>
+            <td th:text="${trend.predictedDemand}">Demand</td>
+            <td th:text="${trend.predictedPrice}">Price</td>
+            <td th:text="${trend.confidence}">Confidence</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
