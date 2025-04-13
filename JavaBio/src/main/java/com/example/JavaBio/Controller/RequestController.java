@@ -26,6 +26,6 @@ public class RequestController {
         return ResponseEntity.ok(requestRepository.findByStatus(status));
     }
 
-    // Other endpoints...
+
 }
 

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Market Trend Predictions</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Include Chart.js via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">MerrBio</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h2>Market Trend Predictions</h2>
+    <!-- A canvas element for Chart.js -->
+    <canvas id="marketTrendChart" width="800" height="400"></canvas>
+</div>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    // Parse the JSON data passed from the controller
+    var marketTrends = /*[[${marketTrendsJson}]]*/ '[]';
+    // Convert the JSON string into an array of objects
+    var predictions = JSON.parse(marketTrends);
+
+    // Prepare arrays to hold labels (e.g. forecastStart dates) and corresponding predicted demand.
+    var labels = [];
+    var demandData = [];
+
+    // Loop over the predictions and extract the necessary data.
+    predictions.forEach(function(trend) {
+        // We expect forecastStart to be a date string like "2025-05-01"
+        labels.push(trend.forecastStart);
+        // PredictedDemand should be a number (you may need to handle null values here)
+        demandData.push(trend.predictedDemand || 0);
+    });
+
+    // Configure Chart.js options
+    var ctx = document.getElementById('marketTrendChart').getContext('2d');
+    var marketChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Predicted Demand',
+                data: demandData,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                tension: 0.1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Units Sold'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Forecast Date'
+                    }
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Market Trend Predictions'
+                }
+            }
+        }
+    });
+    /*]]>*/
+</script>
+</body>
+</html>
