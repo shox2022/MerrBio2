@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bedd859-7865-404e-a8ca-be8e15eeaa21" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Controller/MarketTrendController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Entity/MarketPrediction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Repository/MarketPredictionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/market-trends.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Entity/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Entity/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Controller/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/java/com/example/JavaBio/Controller/RequestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/consumer.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/consumer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/farmer.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/farmer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/superadmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBio/src/main/resources/templates/superadmin.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -59,7 +61,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Java",
+    "git-widget-placeholder": "Order",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/User/Downloads/Database-Administration",
     "project.structure.last.edited": "Modules",
