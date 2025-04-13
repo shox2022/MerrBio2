@@ -2,37 +2,92 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join MerrBio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .registration-card {
+            max-width: 500px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .role-selector .form-check-input {
+            margin-top: 0.25rem;
+        }
+        .registration-hero {
+            background: linear-gradient(rgba(40, 167, 69, 0.9), rgba(40, 167, 69, 0.9)),
+                        url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <h1>Register</h1>
-
-    <!-- Success Message -->
-    <div th:if="${success}" class="alert alert-success">
-        Registration successful! Please login.
+<div class="registration-hero">
+    <div class="container text-center">
+        <h1 class="display-4">Join Our Community</h1>
+        <p class="lead">Connect directly with local producers and consumers</p>
     </div>
-
-    <form action="/register" method="post">
-        <div class="form-group">
-            <label>Full Name:</label>
-            <input type="text" name="fullName" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label>Email:</label>
-            <input type="email" name="email" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label>Password:</label>
-            <input type="password" name="password" class="form-control" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Register</button>
-        <a href="/login" class="btn btn-link">Back to Login</a>
-    </form>
 </div>
+
+<div class="container">
+    <div class="registration-card">
+        <div th:if="${success}" class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Registration Successful!</h4>
+            <p>Please <a href="/login" class="alert-link">login</a> to continue.</p>
+        </div>
+
+        <form th:action="@{/register}" method="post">
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" name="fullName" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
+
+            <div class="mb-4 role-selector">
+                <label class="form-label">Account Type</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="role"
+                           id="farmer" value="farmer" required>
+                    <label class="form-check-label" for="farmer">
+                        <i class="bi bi-flower1"></i> I'm a Farmer/Producer
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="role"
+                           id="consumer" value="consumer">
+                    <label class="form-check-label" for="consumer">
+                        <i class="bi bi-cart"></i> I'm a Consumer
+                    </label>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-success btn-lg">
+                    Create Account
+                </button>
+                <a href="/login" class="btn btn-outline-secondary">
+                    Already have an account? Login
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </body>
 </html>

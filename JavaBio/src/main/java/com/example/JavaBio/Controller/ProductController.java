@@ -21,7 +21,7 @@ public class ProductController {
         return productRepository.save(product);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Product>> getAllProducts(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
@@ -29,6 +29,8 @@ public class ProductController {
         Page<Product> products = productRepository.findAll(PageRequest.of(page, size));
         return ResponseEntity.ok(products.getContent());
     }
+
+
 
     // Other endpoints...
 }
